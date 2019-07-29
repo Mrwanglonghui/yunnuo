@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
@@ -932,6 +932,30 @@
 		// document.write("您是第" + visits + "位访问本专题的！")
 		// document.write(returnCitySN["cip"]+','+returnCitySN["cname"]) 
 		// -->
+		</script>
+
+		<script>
+		
+		$.ajax({
+            url: '/handler/index.ashx?flag=aa' + "&visits=" + visits + "&city=" + returnCitySN["cname"] + "&ip=" + returnCitySN["cip"],
+                type: "post",
+                data: {},
+            success: function (data) {
+                var _value = data.split(',');
+                alert("欢迎来自" + _value[0] + ",IP为" + _value[1] + "的第" + _value[2] + "位客户");
+      //              if (data == "SUCCESS") {
+						//console.log('hello');
+      //                  // location.href = "/html/index.html";
+      //              } else if (data == "error") {
+      //                  alert("账号或密码错误，请重新输入！");
+      //                  $("#name").val("");
+      //                  $("#password").val("");
+      //              } else if (data == "danger") {
+      //                  alert("系统错误，请联系管理员");
+      //              }
+                }
+            })
+
 		</script>
 </body>
 
